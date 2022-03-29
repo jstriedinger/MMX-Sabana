@@ -15,6 +15,17 @@ public class Player : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        StartCoroutine( MiCorutina() );
+    }
+
+    IEnumerator MiCorutina()
+    {
+        while(true)
+        {
+            Debug.Log("Esperando 4 segundos");
+            yield return new WaitForSeconds(4);
+            Debug.Log("pasaron 4 segundos");
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +39,24 @@ public class Player : MonoBehaviour
 
         isGrounded = (ray.collider != null);
         Jump();
+        Fire();
+    }
+
+    void Fire()
+    {
+        if(Input.GetKey(KeyCode.Z))
+        {
+            myAnim.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            myAnim.SetLayerWeight(1, 0);
+        }
+    }
+
+    void FinishingRun()
+    {
+        Debug.Log("Termina animacion de correr");
     }
 
     void Jump()
