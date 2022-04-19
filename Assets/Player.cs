@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-        StartCoroutine( MiCorutina() );
+        //StartCoroutine( MiCorutina() );
     }
 
     IEnumerator MiCorutina()
