@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/mi-estilo.uss?fileID=7433441132597879392&amp;guid=46f31319638ce5c42ac0a4057fd8e6c3&amp;type=3#mi-estilo" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0.54); height: 100%; width: 100%; align-items: center; justify-content: center; display: flex;">
+        <ui:VisualElement style="background-color: rgba(248, 248, 248, 0.83); height: 552px; width: 498px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; flex-direction: column; align-items: center; justify-content: center;">
+            <ui:Button text="Start Game" display-tooltip-when-elided="true" name="start-btn" class="my-btn" />
+            <ui:Button text="Show Message" display-tooltip-when-elided="true" name="msg-btn" class="my-btn" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="msg-txt" style="font-size: 36px; -unity-font-style: bold; position: absolute; top: 15px; display: none;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

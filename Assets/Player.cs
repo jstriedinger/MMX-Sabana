@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int jumpForce;
+
     Rigidbody2D myBody;
     Animator myAnim;
     bool isGrounded = true;
@@ -65,7 +66,6 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("Saltando!");
                 myBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             }
         }
