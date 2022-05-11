@@ -6,10 +6,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int jumpForce;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float fireRate;
+    [SerializeField] float bulletSpeed;
 
     Rigidbody2D myBody;
     Animator myAnim;
     bool isGrounded = true;
+    float nextFire = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,16 +48,29 @@ public class Player : MonoBehaviour
         Fire();
     }
 
+    IEnumerator ChangeLayerWeight()
+    {
+        yield return new WaitForSeconds(0.5f);
+        myAnim.SetLayerWeight(1, 0);
+
+    }
+
     void Fire()
     {
-        if(Input.GetKey(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z) && Time.time >= nextFire)
         {
+            GameObject myBullet = Instantiate(bullet, transform.position, transform.rotation);
+            myBullet.GetComponent<Bullet>().Shoot(transform.localScale.x, bulletSpeed);
+
+
+            nextFire = Time.time + fireRate;
             myAnim.SetLayerWeight(1, 1);
         }
-        else
+        else if(Time.time > nextFire + 0.2f)
         {
             myAnim.SetLayerWeight(1, 0);
         }
+        
     }
 
     void FinishingRun()
